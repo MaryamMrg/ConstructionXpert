@@ -6,9 +6,18 @@ public class Resource {
     private int quantity;
     private String fornisseur;
     private int resource_id;
-    private  int T_id;
+
 
     public Resource() {
+    }
+
+    public Resource(int resource_id ,String r_name, String type, int quantity, String fornisseur) {
+        this.resource_id = resource_id;
+        R_name = r_name;
+        this.type = type;
+        this.quantity = quantity;
+        this.fornisseur = fornisseur;
+
     }
 
     public Resource(String r_name, String type, int quantity, String fornisseur) {
@@ -17,6 +26,8 @@ public class Resource {
         this.quantity = quantity;
         this.fornisseur = fornisseur;
     }
+
+
 
     public String getR_name() {
         return R_name;
@@ -58,11 +69,5 @@ public class Resource {
         this.resource_id = resource_id;
     }
 
-    public int getT_id() {
-        return T_id;
-    }
 
-    public void setT_id(int t_id) {
-        T_id = t_id;
-    }
 }

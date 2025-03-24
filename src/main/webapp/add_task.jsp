@@ -33,11 +33,11 @@
             </div>
             <div class="mb-3">
                 <label for="T_start_date" class="form-label">date of start</label>
-                <input type="text" class="form-control" id="T_start_date" name="T_start_date">
+                <input type="date" class="form-control" id="T_start_date" name="T_start_date">
             </div>
             <div class="mb-3">
                 <label for="T_end_date" class="form-label">date of end</label>
-                <input type="text" class="form-control" id="T_end_date" name="T_end_date">
+                <input type="date" class="form-control" id="T_end_date" name="T_end_date">
             </div>
 
             <div class="mb-3">

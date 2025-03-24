@@ -1,7 +1,9 @@
 package com.example.constructionxpert.servlet;
 
+import com.example.constructionxpert.Dao.AssigneR_to_T_Dao;
 import com.example.constructionxpert.Dao.TaskDao;
 
+import com.example.constructionxpert.bean.Resource;
 import com.example.constructionxpert.bean.Task;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import java.util.List;
 @WebServlet("/TaskServlet")
 public class TaskServlet extends HttpServlet {
 private TaskDao td;
+private AssigneR_to_T_Dao rtd= new AssigneR_to_T_Dao();
 
     @Override
     public void init() throws ServletException {
@@ -39,6 +42,10 @@ private TaskDao td;
 
         }else{
             List<Task> tasklist =td.getalltasks();
+            for (Task task : tasklist){
+                List<Resource> resourcelist =rtd.getRbyTid(task.getT_id());
+                req.setAttribute("resourcelist"+task.getT_id(),resourcelist);
+            }
             req.setAttribute("tasklist",tasklist);
             req.getRequestDispatcher("tasklist.jsp").forward(req,resp);
 

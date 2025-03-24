@@ -1,5 +1,7 @@
 package com.example.constructionxpert.bean;
 
+import java.util.List;
+
 public class Task {
 
     private int T_id;
@@ -7,6 +9,7 @@ public class Task {
     private String T_description;
     private String T_start_date;
     private String T_end_date;
+    private List<Resource> resourceList;
     private int resource_id;
     private int P_id;
 
@@ -14,8 +17,15 @@ public class Task {
     }
 
 
+    public List<Resource> getResourceList() {
+        return resourceList;
+    }
 
-    public Task( String name, String description, String start, String end) {
+    public void setResourceList(List<Resource> resourceList) {
+        this.resourceList = resourceList;
+    }
+
+    public Task(String name, String description, String start, String end) {
 
         T_name=name;
         T_description=description;
