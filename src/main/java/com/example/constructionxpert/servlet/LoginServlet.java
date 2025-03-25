@@ -27,7 +27,7 @@ private UserDao userdao;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        String username = req.getParameter("username");
-       String password = req.getParameter("password");
+       String password = req.getParameter("user_password");
 
         User user =userdao.getUser(username,password);
         if(user!=null){

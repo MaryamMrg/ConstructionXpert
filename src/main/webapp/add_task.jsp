@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.constructionxpert.bean.Project" %><%--
   Created by IntelliJ IDEA.
   User: admin
   Date: 15/02/2025
@@ -18,11 +18,13 @@
         <a class="navbar-brand" href="#">ConstructionXpert</a>
     </div>
 </nav>
-
+<%   Project project=(Project) request.getAttribute("project");%>
 <div class="container my-5">
     <div class="card-body">
         <h2 class="card-title text-center mb-4">add a new task</h2>
         <form action="TaskServlet" method="post">
+            <input type="hidden" name="action" value="assigneTtoP">
+            <input type="hidden" name="P_id" value="<%= project.getP_id()%>" >
             <div class="mb-3">
                 <label for="T_name" class="form-label">Name of task</label>
                 <input type="text" class="form-control" id="T_name" name="T_name">

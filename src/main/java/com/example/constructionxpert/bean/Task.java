@@ -12,6 +12,9 @@ public class Task {
     private List<Resource> resourceList;
     private int resource_id;
     private int P_id;
+    private Project project;
+
+
 
     public Task() {
     }

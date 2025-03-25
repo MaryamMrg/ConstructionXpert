@@ -77,8 +77,8 @@
                 <label for="username" class="form-label">User Name</label>
                 <input type="text" class="form-control" id="username" name="username">
                 <span class="help-block" style="color: red ; margin-bottom: 15px" id="msj" >champ obligatoire </span><br>
-                <label for="password" class="form-label">PassWord</label>
-                <input type="password" class="form-control" id="password" name="password" >
+                <label for="user_password" class="form-label">PassWord</label>
+                <input type="password" class="form-control" id="user_password" name="user_password" >
                 <span class="help-block" style="color: red ; margin-bottom: 15px" id="msjj" >champ obligatoire </span><br>
 
                 <button type="submit" class="btn btn-primary" style="float: right ; margin-bottom: 15px">Login</button>
@@ -91,7 +91,7 @@
 </div>
 <script>
     const usr = document.getElementById('username');
-    const psw = document.getElementById('password');
+    const psw = document.getElementById('user_password');
     msj = document.getElementById('msj');
     msjj = document.getElementById('msjj');
 

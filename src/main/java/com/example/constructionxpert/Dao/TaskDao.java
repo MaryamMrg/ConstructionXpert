@@ -118,5 +118,41 @@ public void updatetask(Task task){
             e.printStackTrace();
         }
     }
+public void assigneTtoP(Task task){
+    String sql ="insert into task(T_name,T_description,T_start_date,T_end_date,P_id) values(?,?,?,?,?)";
+    try(PreparedStatement ps = con.prepareStatement(sql)){
+        ps.setString(1,task.getT_name());
+        ps.setString(2,task.getT_description());
+        ps.setString(3,task.getT_start_date());
+        ps.setString(4,task.getT_end_date());
+        ps.setInt(5,task.getP_id());
+        ps.executeUpdate();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+public List<Task> getTaskByProjectId(int P_id) {
+    List<Task> taskList = new ArrayList<>();
+    String sql = "SELECT * FROM task WHERE P_id = ?";
+    try (PreparedStatement ps = con.prepareStatement(sql)) {
+        ps.setInt(1, P_id);
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Task task = new Task();
+                task.setT_id(rs.getInt("T_id"));
+                task.setT_name(rs.getString("T_name"));
+                task.setT_description(rs.getString("T_description"));
+                task.setT_start_date(rs.getString("T_start_date"));
+                task.setT_end_date(rs.getString("T_end_date"));
+                task.setP_id(rs.getInt("P_id"));
+                taskList.add(task);
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return taskList;
+}
 
 }

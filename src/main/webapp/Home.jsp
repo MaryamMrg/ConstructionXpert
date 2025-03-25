@@ -266,7 +266,7 @@
             <a href="ProjectServlet">Projects</a>
             <a href="TaskServlet">Tasks</a>
             <a href="ResourceServlet">Resources</a>
-            <a href="ProjectServlet" class="btn">Get Started</a>
+            <a href="logout" class="btn">logout</a>
         </div>
     </nav>
 </header>

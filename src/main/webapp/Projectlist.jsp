@@ -37,7 +37,8 @@
             <td>
                 <a href="ProjectServlet?action=update&P_id=<%= project.getP_id() %>" class="btn btn-warning btn-sm">Edit</a>
                 <a href="ProjectServlet?action=delete&P_id=<%= project.getP_id()%>" class="btn btn-danger btn-sm">Delete</a>
-                <a href="TaskServlet?P_id=<%= project.getP_id()%>" class="btn btn-primary">add taska</a>
+                <a href="TaskServlet?action=assigneTtoP&P_id=<%= project.getP_id()%>" class="btn btn-primary">add task</a>
+                <a href="TaskServlet?action=TbyP&P_id=<%= project.getP_id()%>" class="btn btn-primary">tasks</a>
 
 
 

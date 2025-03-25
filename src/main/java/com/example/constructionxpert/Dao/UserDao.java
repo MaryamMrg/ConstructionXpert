@@ -31,7 +31,7 @@ public class UserDao {
                 while(rs.next()){
                     user = new User();
                     user.setUsername(rs.getString("username"));
-                    user.setPassword(rs.getString("password"));
+                    user.setPassword(rs.getString("user_password"));
                 }
             }
         } catch (Exception e) {

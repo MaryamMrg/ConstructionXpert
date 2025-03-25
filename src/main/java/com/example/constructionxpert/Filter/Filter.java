@@ -1,4 +1,4 @@
-/*package com.example.constructionxpert.Filter;
+package com.example.constructionxpert.Filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -27,7 +27,7 @@ public class Filter implements jakarta.servlet.Filter {
 
         if (uri.endsWith("login")) {
             if (session != null && session.getAttribute("user") != null) {
-                httpresponse.sendRedirect(httprequest.getContextPath() + "/ProjetServlet");
+                httpresponse.sendRedirect(httprequest.getContextPath() + "/Home");
                 return;
             }
             filterChain.doFilter(servletRequest, servletResponse);
@@ -49,4 +49,4 @@ public class Filter implements jakarta.servlet.Filter {
     public void destroy() {
         jakarta.servlet.Filter.super.destroy();
     }
-}*/
+}
