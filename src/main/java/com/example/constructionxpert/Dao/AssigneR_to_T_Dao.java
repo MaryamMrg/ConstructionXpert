@@ -41,7 +41,7 @@ public AssigneR_to_T_Dao(){
     }
   public List<Resource> getRbyTid(int T_id){
       List<Resource> resourcelist = new ArrayList<>();
-      String sql = "SELECT r.resource_id, r.name, r.type, r.quantity, r.fornisseur " +
+      String sql = "SELECT r.resource_id, r.R_name, r.type, r.quantity, r.fornisseur " +
               "FROM resource r " +
               "JOIN task_res tr ON r.resource_id = tr.resource_id " +
               "WHERE tr.T_id = ?";
@@ -52,7 +52,7 @@ public AssigneR_to_T_Dao(){
         try(ResultSet rs =ps.executeQuery()){
             while (rs.next()){
                 int resource_id=rs.getInt("resource_id");
-                String name =rs.getString("name");
+                String name =rs.getString("R_name");
                 String type =rs.getString("type");
                 int quantity=rs.getInt("quantity");
                 String fornisseur =rs.getString("fornisseur");

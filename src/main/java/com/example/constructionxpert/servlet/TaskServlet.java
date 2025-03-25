@@ -1,8 +1,10 @@
 package com.example.constructionxpert.servlet;
 
 import com.example.constructionxpert.Dao.AssigneR_to_T_Dao;
+import com.example.constructionxpert.Dao.ProjectDao;
 import com.example.constructionxpert.Dao.TaskDao;
 
+import com.example.constructionxpert.bean.Project;
 import com.example.constructionxpert.bean.Resource;
 import com.example.constructionxpert.bean.Task;
 import jakarta.servlet.ServletException;
@@ -40,7 +42,18 @@ private AssigneR_to_T_Dao rtd= new AssigneR_to_T_Dao();
             td.deletetask(id);
             resp.sendRedirect(req.getContextPath()+"/TaskServlet");
 
-        }else{
+        } else if ("newtask".equals(action)) {
+            int P_id = Integer.parseInt(req.getParameter("P_id"));
+            ProjectDao pd=new ProjectDao();
+            Project project=pd.getProjectbyId(P_id);
+            req.setAttribute("project",project);
+            req.getRequestDispatcher("add_task.jsp").forward(req,resp);
+
+        } else if ("TbyP".equals(action)) {
+            int P_id = Integer.parseInt(req.getParameter("P_id"));
+
+
+        } else{
             List<Task> tasklist =td.getalltasks();
             for (Task task : tasklist){
                 List<Resource> resourcelist =rtd.getRbyTid(task.getT_id());
