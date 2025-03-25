@@ -20,6 +20,7 @@ import java.util.List;
 public class TaskServlet extends HttpServlet {
 private TaskDao td;
 private AssigneR_to_T_Dao rtd= new AssigneR_to_T_Dao();
+private ProjectDao pd=new ProjectDao();
 
     @Override
     public void init() throws ServletException {
@@ -53,7 +54,7 @@ private AssigneR_to_T_Dao rtd= new AssigneR_to_T_Dao();
             int P_id = Integer.parseInt(req.getParameter("P_id"));
            List<Task> tasklist =td.getTaskByProjectId(P_id);
            req.setAttribute("tasklist",tasklist);
-           Project project=new Project();
+           Project project=pd.getProjectbyId(P_id);
            req.setAttribute("project",project);
            req.getRequestDispatcher("taskproject.jsp").forward(req,resp);
 
